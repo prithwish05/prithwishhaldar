@@ -1,0 +1,26 @@
+<div class="skills-section mt-5" id="skills">
+    <h3 class="text-center mb-4" style="color:#ffffff;">Skill Set</h3>
+    <div class="row">
+        <!-- Render skills from context. Use model color fields for gradient. -->
+        {% if skills %}
+            {% for skill in skills %}
+            <div class="col-md-6 mb-4">
+                <div class="skill mb-4">
+                    <span style="color: {{ skill.color_start }};">{{ skill.name }}</span>
+                    <div class="progress" style="height: 20px;">
+                        <div class="progress-bar progress-bar-striped " role="progressbar"
+                            data-width="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100"
+                            style="width:0; background: linear-gradient(90deg, {{ skill.color_start }}, {{ skill.color_end }}); color: #fff;">
+                            {{ skill.percentage }}%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p class="text-center text-muted">No skills to display.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>

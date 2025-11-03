@@ -1,0 +1,60 @@
+{% load static %}
+<section class="card-section py-5">
+    <div class="container">
+        <h1 class="text-center text-white mb-5" style="font-size: 3.5rem;">
+            <span style="color: #f78c40;">My</span>
+            <span style="color: rgb(129 140 248);">Portfolio</span>
+        </h1>
+        <div class="card-grid d-flex flex-wrap justify-content-center gap-4">
+            <div class="project-card">
+                 
+                <div class="project-image">
+                    <img src="{% static 'img\projects\Image Enhancement.png' %}" alt="" />
+                </div>
+                <div class="project-content text-center">
+                    <br>
+                    <h5>Image Enhancement using Traditional Methods & Machine Learning Methods</h5>
+                    <p>Enhances image quality using Histogram Equalization and SRCNN with Python, OpenCV, and TensorFlow/Keras</p>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                        <!-- <a href="" class="btn btn-github" target="_blank">GitHub</a>
+                        <a href="" class="btn btn-live" target="_blank">Live</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="{% static 'img\projects\Multiple Disease.png' %}" alt="" />
+                </div>
+                <div class="project-content text-center">
+                    <br>
+                    <h5>Multiple Disease Prediction System</h5>
+                    <p>Here user can check they have Heart, Cancer, Diabetes, Parkinson’s disease or not</p>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                        <a href="https://github.com/prithwish05/Multiple-Disease-Prediction-System" class="btn btn-github" target="_blank">GitHub</a>
+                        <!-- <a href="" class="btn btn-live" target="_blank">Live</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="{% static 'img\projects\Marks Calculation.png' %}" alt="" />
+                </div>
+                <div class="project-content text-center">
+                    <br>
+                    <h5>MAKAUT Marks Calculation System</h5>
+                    <p>Students can calculate there marks (SGPA || YGPA || Marks Percentage)</p>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                        <a href="https://github.com/prithwish05/MAKAUT-Marks-Calculation-System" class="btn btn-github" target="_blank">GitHub</a>
+                        <!-- <a href="" class="btn btn-live" target="_blank">Live</a> -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <center>
+            <a href="/portfolio/" class="btn btn-primary mt-3">See More...</a>
+        </center>
+    </div>
+
+
+</section>

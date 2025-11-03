@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+  <section class="card-section py-5">
+    <div class="container">
+      <h1 class="text-center text-white mb-5" style="font-size: 3.5rem;">
+        <span style="color: #f78c40;">My</span>
+        <span style="color: rgb(129 140 248);">Portfolio</span>
+      </h1>
+      <div class="card-grid d-flex flex-wrap justify-content-center gap-4">
+        {% for project in projects %}
+          <div class="project-card">
+            <div class="project-image">
+              {% if project.image %}
+                <img src="{{ project.image }}" alt="{{ project.title }}" />
+              {% endif %}
+            </div>
+            <br>
+            <div class="project-content text-center">
+              <h5>{{ project.title }}</h5>
+              <p>{{ project.description|truncatewords:50 }}</p>
+              <div class="d-flex justify-content-center gap-2 mt-3">
+                {% if project.github_url %}
+                  <a href="{{ project.github_url }}" class="btn btn-github" target="_blank">GitHub</a>
+                {% endif %}
+                {% if project.live_url %}
+                  <a href="{{ project.live_url }}" class="btn btn-live" target="_blank">Live</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

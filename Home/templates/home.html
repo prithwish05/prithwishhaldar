@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+  <section class="hero d-flex align-items-center">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <!-- LEFT SIDE -->
+        <div class="col-md-6 text-start hero-text ps-5" style="padding-left: 14% !important;">
+          <h3>Welcome</h3>
+          <h5>I'm</h5>
+          <h1>
+            <span style="color: rgb(129 140 248);">Prithwish Haldar</span>
+            <br />
+            <span style="color: #f78c40;">Full Stack</span>
+            <span style="color: rgb(129 140 248);">Developer</span>
+          </h1>
+          <div class="mt-4 d-flex gap-3">
+            <a href="/portfolio/" class="btn btn-primary" style="">Portfolio</a>
+            <a href="#about" class="btn btn-outline-secondary" style="">About</a>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-md-6 text-center d-flex flex-column align-items-center right-side">
+          <div class="position-relative d-flex justify-content-center">
+            <div class="overlay-circle"></div>
+            <div class="profile">
+              <img src="{% static 'img/prith.png' %}" alt="Prithwish Haldar" />
+            </div>
+          </div>
+          <div class="tech-icons d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <img src="{% static 'img/icon/html.png' %}" alt="HTML" class="tech-icon" />
+            <img src="{% static 'img/icon/css.png' %}" alt="CSS" class="tech-icon" />
+            <img src="{% static 'img/icon/js.png' %}" alt="JavaScript" class="tech-icon" />
+            <img src="{% static 'img/icon/react.png' %}" alt="React" class="tech-icon" />
+            <img src="{% static 'img/icon/python.png' %}" alt="Python" class="tech-icon" />
+            <img src="{% static 'img/icon/dj.png' %}" alt="Django" class="tech-icon" />
+            <img src="{% static 'img/icon/rest.png' %}" alt="REST" class="tech-icon" />
+            <img src="{% static 'img/icon/sql.png' %}" alt="SQL" class="tech-icon" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include 'desig.html' %}
+
+  {% include 'about.html' %}
+
+  {% include 'portfolio_home.html' %}
+
+  
+{% endblock %}
