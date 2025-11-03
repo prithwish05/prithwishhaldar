@@ -2,6 +2,7 @@
 django>=5.2.6
 djangorestframework>=3.14.0
 django-cors-headers>=4.3.0
+Pillow>=10.1.0  # Python Imaging Library for image processing
 
 # Database and Environment
 dj-database-url>=2.1.0
