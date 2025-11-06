@@ -92,12 +92,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Serve media files in production
-if not DEBUG:
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'  # If using AWS S3
-    # Or use whitenoise for media in production
-    WHITENOISE_MANIFEST_STRICT = False
-    WHITENOISE_USE_FINDERS = True
 
 # ---------------- SECURITY CONFIG ---------------- #
 # Completely disable SSL/HTTPS settings in development
