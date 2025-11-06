@@ -29,8 +29,6 @@ INSTALLED_APPS = [
     'Contact',
     'rest_framework',
     'blog',
-    'cloudinary',
-    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
