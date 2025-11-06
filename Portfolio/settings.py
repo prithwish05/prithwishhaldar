@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'Contact',
     'rest_framework',
     'blog',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -89,8 +91,23 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# ---------------- MEDIA & CLOUDINARY CONFIG ---------------- #
+
+if DEBUG:
+    # Local development - store media in local folder
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
+else:
+    # Production (Render) - store on Cloudinary
+    INSTALLED_APPS += ['cloudinary', 'cloudinary_storage']
+
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+        'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+        'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+    }
 
 
 # ---------------- SECURITY CONFIG ---------------- #
