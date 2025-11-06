@@ -99,13 +99,19 @@ if DEBUG:
     MEDIA_ROOT = BASE_DIR / 'media'
 else:
     # Production - store on Cloudinary
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    INSTALLED_APPS += ['cloudinary', 'cloudinary_storage']
+
     CLOUDINARY_STORAGE = {
         'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
         'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
         'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
     }
-    MEDIA_URL = 'https://res.cloudinary.com/' + os.environ.get('CLOUDINARY_CLOUD_NAME') + '/image/upload/'
+
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+    # Cloudinary automatically handles URLs — no need to set MEDIA_URL manually
+    MEDIA_URL = 'https://res.cloudinary.com/{}/'.format(os.environ.get('CLOUDINARY_CLOUD_NAME'))
+
 
 # ---------------- SECURITY CONFIG ---------------- #
 # Completely disable SSL/HTTPS settings in development
