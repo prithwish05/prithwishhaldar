@@ -108,7 +108,7 @@ else:
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
     # ✅ Let Cloudinary handle media URLs automatically
-    MEDIA_URL = f'https://res.cloudinary.com/{os.environ.get("CLOUDINARY_CLOUD_NAME")}/'
+    MEDIA_URL = f'https://res.cloudinary.com/{os.environ.get("CLOUDINARY_CLOUD_NAME")}/image/upload/'
 
 # (Do not re-add cloudinary or cloudinary_storage in INSTALLED_APPS here)
 
