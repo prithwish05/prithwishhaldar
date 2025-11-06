@@ -98,9 +98,7 @@ if DEBUG:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'media'
 else:
-    # Production - store on Cloudinary
-    INSTALLED_APPS += ['cloudinary', 'cloudinary_storage']
-
+    # ✅ Production - store media on Cloudinary
     CLOUDINARY_STORAGE = {
         'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
         'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
@@ -109,8 +107,11 @@ else:
 
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-    # Cloudinary automatically handles URLs — no need to set MEDIA_URL manually
-    MEDIA_URL = 'https://res.cloudinary.com/{}/'.format(os.environ.get('CLOUDINARY_CLOUD_NAME'))
+    # ✅ Let Cloudinary handle media URLs automatically
+    MEDIA_URL = f'https://res.cloudinary.com/{os.environ.get("CLOUDINARY_CLOUD_NAME")}/'
+
+# (Do not re-add cloudinary or cloudinary_storage in INSTALLED_APPS here)
+
 
 
 # ---------------- SECURITY CONFIG ---------------- #
